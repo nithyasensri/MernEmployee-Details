@@ -75,7 +75,7 @@ const AddForm = () => {
         formData.append('preview', preview);
 
         try {
-            const response = await axios.post("/employees", formData, {
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/employees`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${user.token}`,
@@ -133,7 +133,7 @@ const AddForm = () => {
         }
 
         try {
-            const response = await axios.patch(`/employees/${id}`, { name, dob, gender, designation, salary, contact, file, preview }, {
+            const response = await axios.patch(`${process.env.REACT_APP_BACKEND_URL}/employees/${id}`, { name, dob, gender, designation, salary, contact, file, preview }, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${user.token}`,
@@ -154,7 +154,7 @@ const AddForm = () => {
         navigate('/')
     }
 
-
+console.log(formValues.preview)
 
 
     return (
@@ -229,7 +229,7 @@ const AddForm = () => {
                             <span className='in-lab'><label>Image:</label></span>
                             <input type="file" accept="image/*" onChange={handleImageChange} value={formValues.file}
                                 className='in-form in-img' />
-                            {formValues.preview && <img src={formValues.preview} alt="Image preview" style={{ width: '300px', height: 'auto' }} />}
+                            {formValues.preview && <img src={`${process.env.REACT_APP_BACKEND_URL}/uploads/${formValues.image}`} alt="Image preview" style={{ width: '300px', height: 'auto' }} />}
                         </div>
                         <div className='inputform'>
                             <span className='in-lab'><label>Designation:</label></span>

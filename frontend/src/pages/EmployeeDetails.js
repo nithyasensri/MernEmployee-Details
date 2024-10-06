@@ -17,7 +17,7 @@ const EmployeeDetails = () => {
 
             console.log('aa')
 
-            const response = await axios.get('/employees', {
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/employees`, {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }

@@ -17,7 +17,7 @@ const SingleEmployee = () => {
                     <h5>Date.of.Birth:  {new Date(singleEmployee.dob).toLocaleDateString('en-GB')}</h5>
                     <h5>Gender:  {singleEmployee.gender}</h5>
                     <div style={{ "width": "200px", "marginBottom": "10px" }}>
-                        <h5>Image:</h5> <img src={`http://localhost:4000/uploads/${singleEmployee.image}`} style={{ "maxWidth": "200px" }} />
+                        <h5>Image:</h5> <img src={`${process.env.REACT_APP_BACKEND_URL}/uploads/${singleEmployee.image}`} style={{ "maxWidth": "200px" }} />
                     </div>
                     <h5>Designation: {singleEmployee.designation}</h5>
                     <h5>Salary: {singleEmployee.salary}</h5>

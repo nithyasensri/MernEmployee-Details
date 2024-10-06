@@ -13,7 +13,7 @@ const Usesignup = () => {
         const data = {email,password}
         // console.log(data)
         try {
-            const response = await axios.post('users/signup', data)
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/signup`, data)
             if (response) {
                 // console.log(JSON.stringify(response.data))
                 localStorage.setItem('user', JSON.stringify(response.data))

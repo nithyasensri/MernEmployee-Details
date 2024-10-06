@@ -21,7 +21,7 @@ const EmployeeList = ({ employees }) => {
         if (!user) {
             return
         }
-        const response = await axios.delete('/employees/' + id, {
+        const response = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/employees/` + id, {
             headers: {
                 Authorization: `Bearer ${user.token}`, // Include the token in the Authorization header
             },
@@ -63,7 +63,7 @@ const EmployeeList = ({ employees }) => {
                             <td>{employee.name}</td>
                             <td>{employee.gender}</td>
                             <td><div style={{ "width": "200px" }}>
-                                <img src={`http://localhost:4000/uploads/${employee.image}`} style={{ "maxWidth": "200px" }} />
+                                <img src={`${process.env.REACT_APP_BACKEND_URL}/uploads/${employee.image}`} style={{ "maxWidth": "200px" }} />
                             </div>
                             </td>
                             <td>{employee.designation}</td>
